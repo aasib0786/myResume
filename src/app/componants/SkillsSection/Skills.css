@@ -1,0 +1,39 @@
+/* skills.css */
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.skill-section {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.skill-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.skill-bar {
+  transition: width 1s ease-out;
+}
+
+.skill-container {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.skill-container:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
