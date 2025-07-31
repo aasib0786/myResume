@@ -1,9 +1,14 @@
 import Image from "next/image";
-import Home from "./Pages/Home/Page";
+import Hero from "./pages/hero/page";
+import SkillsSection from "./componants/SkillsSection/SkillsSection";
+import ProjectsSection from "./componants/ProjectsSection/ProjectsSection";
+
 export default function Page() {
   return (
-    <div style={{marginTop: "100px"}} >
-      <Home />
+    <div style={{ marginTop: "100px" }} >
+      <Hero/>
+      <SkillsSection />
+      <ProjectsSection />
     </div>
   );
 }
