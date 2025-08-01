@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaJs, FaGithub } from 'react-icons/fa';
 import { SiMongodb, SiExpress } from 'react-icons/si';
 import Image from 'next/image';
-import devImage from '../../Images/ASSIB.png'; // your image path
+import devImage from '../../Assses/images/image1bg.png'; 
 
 export default function Home() {
   return (
@@ -65,8 +65,8 @@ export default function Home() {
             <Image
               src={devImage}
               alt="Developer Illustration"
-              width={380}
-              height={380}
+              width={280}
+              height={280}
               className="rounded-full shadow-2xl border-4 border-indigo-200"
             />
 
