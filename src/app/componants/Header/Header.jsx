@@ -1,9 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/#about' },
@@ -24,24 +28,66 @@ export default function Header() {
           Aasib | Portfolio
         </motion.h1>
 
-        <nav className="flex gap-4 md:gap-6 text-gray-700 font-medium">
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex gap-6 text-gray-800 font-medium">
           {navItems.map((item, index) => (
             <motion.div
               key={item.name}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * index, duration: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 300 }}
             >
               <Link
                 href={item.href}
-                style={{ color: 'inherit', textDecoration: 'none' }}
-                className="transition-colors duration-300 hover:text-blue-500"
+                className="transition-all duration-300 hover:text-blue-600 text-lg"
+                style={{ textDecoration: 'none' }}
               >
                 {item.name}
               </Link>
             </motion.div>
           ))}
         </nav>
+
+        {/* Mobile Toggle Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-2xl text-blue-600 focus:outline-none"
+          >
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <motion.nav
+          initial={{ height: 0 }}
+          animate={{ height: 'auto' }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-white px-4 pt-2 pb-4 shadow-md"
+        >
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * index }}
+              className="py-2"
+            >
+              <Link
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block text-gray-800 text-base font-medium transition-colors duration-300 hover:text-blue-600"
+                style={{ textDecoration: 'none' }}
+              >
+                {item.name}
+              </Link>
+            </motion.div>
+          ))}
+        </motion.nav>
+      )}
     </header>
   );
 }

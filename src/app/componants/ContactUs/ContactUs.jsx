@@ -17,20 +17,28 @@ export default function ContactUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const res = await postData('contactUs', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', },
+    const res = await postData("contactUs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       form,
     });
+
     if (res.status === true) {
-      Swel.fire({ icon: 'success', title: 'Message sent successfully!', showConfirmButton: false, timer: 1500 });
+      Swel.fire({
+        icon: "success",
+        title: "Message sent successfully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       setForm({ name: "", email: "", message: "" });
     } else {
-      Swel.fire({ icon: 'error', title: 'Message not sent!', showConfirmButton: false, timer: 1500 });
+      Swel.fire({
+        icon: "error",
+        title: "Message not sent!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
-
-
   };
 
   return (
@@ -76,6 +84,7 @@ export default function ContactUs() {
             />
           </motion.div>
         </div>
+
         {/* Right Side Form */}
         <motion.form
           onSubmit={handleSubmit}
