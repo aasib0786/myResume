@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // const serverURL = "http://localhost:3000";
-const serverURL = "https://my-resume-git-main-aasibs-projects.vercel.app";
+const serverURL = "https://my-resume-aasibs-projects.vercel.app";
 
 const postData = async (url, body) => {
     try {

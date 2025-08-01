@@ -6,6 +6,7 @@ import { FaEnvelope, FaUser, FaCommentDots } from "react-icons/fa";
 import Image from "next/image";
 import profileImage from "../../Assses/images/image1bg.png";
 import { postData } from "@/app/services/fetchServer";
+import Swel from "sweetalert2";
 
 export default function ContactUs() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -22,10 +23,14 @@ export default function ContactUs() {
       headers: { 'Content-Type': 'application/json', },
       form,
     });
+    if (res.status === true) {
+      Swel.fire({ icon: 'success', title: 'Message sent successfully!', showConfirmButton: false, timer: 1500 });
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      Swel.fire({ icon: 'error', title: 'Message not sent!', showConfirmButton: false, timer: 1500 });
+    }
 
-    console.log("res:=>", res);
-    alert("Message sent successfully!");
-    setForm({ name: "", email: "", message: "" });
+
   };
 
   return (
