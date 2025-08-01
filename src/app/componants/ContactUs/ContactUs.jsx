@@ -5,7 +5,6 @@ import "./ContactUs.css";
 import { FaEnvelope, FaUser, FaCommentDots } from "react-icons/fa";
 import Image from "next/image";
 import profileImage from "../../Assses/images/image1bg.png";
-import { POST } from "@/app/api/contactUs/route";
 import { postData } from "@/app/services/fetchServer";
 
 export default function ContactUs() {
@@ -43,7 +42,7 @@ export default function ContactUs() {
 
       <div className="contact-container">
         {/* Left Side Image */}
-        <div style={{ background: 'red', width: '20%' }}>
+        <div style={{ background: '#80bcd2ff', width: '20%' }}>
           <motion.div
             className="contact-image"
             initial={{ opacity: 0, x: -100 }}

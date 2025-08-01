@@ -33,6 +33,7 @@ export default function Header() {
             >
               <Link
                 href={item.href}
+                style={{ color: 'inherit', textDecoration: 'none' }}
                 className="transition-colors duration-300 hover:text-blue-500"
               >
                 {item.name}
